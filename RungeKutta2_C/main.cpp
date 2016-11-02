@@ -24,9 +24,9 @@ const double T = 100.0;
 void dgl(double* q, double t, double* dq_dt, int dim){
 
     //first coordinate:  dphi1_dt
-    dq_dt[0] = (q[2] / (pow(l1,2) * (m1 + m2)) - (q[3] * cos(q[0] - q[1])) / (l1 * l2 * (m1 +m2)))  *
-            (1. / (1. - (m1 * pow(cos(q[0] - q[1]), 2) / (m1 + m2) )));
-
+    //dq_dt[0] = (q[2] / (pow(l1,2) * (m1 + m2)) - (q[3] * cos(q[0] - q[1])) / (l1 * l2 * (m1 +m2)))  *
+    //        (1. / (1. - (m1 * pow(cos(q[0] - q[1]), 2) / (m1 + m2) )));
+    dq_dt[0] = (q[2] - (l1/l2) * cos(q[0]-q[1]) * q[3])  /  (pow(l1, 2) * (m1+m2) * (1 - pow(cos(q[0]-q[1]),2)));
 
     // second coordinate: dphi2_dt
     dq_dt[1] = ((q[2]) - m2*l1*l2* dq_dt[0] * cos(q[0] - q[1])) / (m2 * pow(l2,2));

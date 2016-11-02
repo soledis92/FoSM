@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <stdlib.h>
 
 void f_D_2(double ** ptr, int row, int col){
     for(int i = 0; i < row; i++){
