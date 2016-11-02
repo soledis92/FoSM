@@ -11,6 +11,8 @@ void rk2( void(*de)(vector<double>&, double, vector<double>&, int), vector<doubl
     int i, k, p, PM = 2;
     static const double c2 = 1./2, c1 = 1.;
 
+    cout << "hallo world 1"<< endl;
+
     vector< vector<double> > a;
     a.resize(PM, vector<double> (PM, 0.0));
 
@@ -30,14 +32,22 @@ void rk2( void(*de)(vector<double>&, double, vector<double>&, int), vector<doubl
 
     for(i = 0; i < n; i++)
         y[0][i] = q[i];
+
+    cout << "hallo world 2 "<< endl;
+
     for(p = 1; p <= PM; p++) {
         de(y[p-1], t+b[p-1]*dt, z[p-1], n);
+
+        cout << "hallo world 3"<< endl;
         for(i = 0; i < n; i++)
             y[p][i] = q[i];
+        cout << "hallo world 4"<< endl;
         for(k = 0; k < p; k++)
             for(i = 0; i < n; i++)
                 y[p][i] = y[p][i] + dt*a[p-1][k]*z[k][i];
+        cout << "hallo world 5"<< endl;
     }
     for(i = 0; i < n; i++)
         q[i] = y[PM][i];
+    cout << q[0]<<endl<<q[1]<<endl<<q[2]<<endl<<q[3]<< endl;
 }
