@@ -29,8 +29,11 @@ void dgl(vector<double>& q, double t, vector<double>& dq_dt, int dim){
     // second coordinate: dphi2_dt
     dq_dt[1] = ((q[2]) - m2*l1*l2* dq_dt[0] * cos(q[1] - q[2])) / (m2 * pow(l2,2));
 
-    // third coordinate: dq1_dt (NICHT ZU VERWECHSELN MIT DEM VEKTOR dq_dt HIER !!!!!
+    // third coordinate: dq1_dt  (NICHT ZU VERWECHSELN MIT DEM VEKTOR dq_dt HIER !!!!! dq1_dt = dq_dt[2] )
     dq_dt[2] = - m2*l1*l2* dq_dt[0] * dq_dt[1] * sin(q[1] - q[2]) - (m1+m2)*g*l1 * sin(q[0]);
+
+    // fourth coordinate: dq2_dt (NICHT ZU VERWECHSELN MIT DEM VEKTOR dq_dt HIER !!!!! dq1_dt = dq_dt[3] )
+    dq_dt[3] = m2*l1*l2 * dq_dt[0] * dq_dt[1] * sin(q[1] - q[2]) - m2*g*l2 * sin(q[1]);
 }
 
 
