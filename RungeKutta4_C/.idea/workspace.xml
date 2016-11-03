@@ -43,8 +43,8 @@
       <file leaf-file-name="doublePendulum_RK4.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/doublePendulum_RK4.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
+            <state relative-caret-position="247">
+              <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -55,7 +55,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
               <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-              <folding />
+              <folding>
+                <marker date="1478183829503" expanded="true" signature="133:213" ph="{...}" />
+                <marker date="1478183829503" expanded="true" signature="248:266" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -333,12 +336,12 @@
       <workItem from="1478125884720" duration="6734000" />
       <workItem from="1478171873119" duration="611000" />
       <workItem from="1478178886163" duration="3007000" />
-      <workItem from="1478183377323" duration="746000" />
+      <workItem from="1478183377323" duration="1434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38727000" />
+    <option name="totallyTimeSpent" value="39415000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="743" extended-state="0" />
@@ -504,14 +507,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding />
+          <folding>
+            <marker date="1478183829503" expanded="true" signature="133:213" ph="{...}" />
+            <marker date="1478183829503" expanded="true" signature="248:266" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/doublePendulum_RK4.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
+        <state relative-caret-position="247">
+          <caret line="108" column="30" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="30" />
           <folding />
         </state>
       </provider>

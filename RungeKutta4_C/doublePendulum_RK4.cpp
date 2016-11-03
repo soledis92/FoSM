@@ -102,7 +102,9 @@ int main(){
                 m2*l2*l2*phi_punkt2*phi_punkt2);
         E_pot = -g*((m1+m2)*l1*cos(y[0]) + m2*l2*cos(y[1]));
 
-        file << t <<" "<< x1 <<" "<< y1 <<" "<< x2 <<" "<< y2 <<" "<< E_kin <<" "<< E_pot <<endl;
+        // neccesarry to also print phi1 and phi2 which are y[0] and y[1] for the simulation video
+        file << t <<" "<< x1 <<" "<< y1 <<" "<< x2 <<" "<< y2 <<" "<< E_kin <<" "<< E_pot <<" "<< y[0] << " "<< y[1]<<endl;
+
 
         rk4(dgl, y, t, dt, n);
         dgl(y, t, phi_punkt, n); //call the dgl function to get phi_punkt 1&2 out of it.
