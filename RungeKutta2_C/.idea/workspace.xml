@@ -134,7 +134,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RungeKutta4_C" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
@@ -334,12 +334,12 @@
       <workItem from="1478108793765" duration="975000" />
       <workItem from="1478125884720" duration="6734000" />
       <workItem from="1478171873119" duration="611000" />
-      <workItem from="1478178886163" duration="2606000" />
+      <workItem from="1478178886163" duration="3668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37580000" />
+    <option name="totallyTimeSpent" value="38642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="743" extended-state="0" />
