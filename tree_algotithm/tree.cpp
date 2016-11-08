@@ -132,7 +132,7 @@ void tree::calc_multipole_moments(tree_node *current)
         {
             for(j=0; j<3; j++)
             {
-                current->cm[j] += current->suns[n]->cm[j];
+                current->cm[j] += current->suns[n]->mass * current->suns[n]->cm[j] / current->mass;
             }
         }
     }
@@ -184,10 +184,9 @@ void tree::walk_tree(tree_node *current, double pos[], double acc[])
         if(theta < opening_threshold || current->p)
         {
             calc_multipole_moments(current);
-
-            acc[0] += current->cm[0] / current->len;
-            acc[1] += current->cm[1] / current->len;
-            acc[2] += current->cm[2] / current->len;
+            acc[0] += current->mass / sqrt(current->cm[0]*current->cm[0] + current->cm[1]*current->cm[1] + current->cm[2]*current->cm[2]);
+            acc[1] += current->mass / sqrt(current->cm[0]*current->cm[0] + current->cm[1]*current->cm[1] + current->cm[2]*current->cm[2]);
+            acc[2] += current->mass / sqrt(current->cm[0]*current->cm[0] + current->cm[1]*current->cm[1] + current->cm[2]*current->cm[2]);
         }
         else
         {
@@ -261,9 +260,11 @@ void tree::simulation()
     {
         for(j=0; j < N; j++)
         {
-            star[i].acc_exact[0] += star[j].mass / (sqrt(star[j].pos[0]*star[j].pos[0] + star[j].pos[1]*star[j].pos[1] + star[j].pos[2]*star[j].pos[2]));
-            star[i].acc_exact[1] += star[j].mass / (sqrt(star[j].pos[0]*star[j].pos[0] + star[j].pos[1]*star[j].pos[1] + star[j].pos[2]*star[j].pos[2]));
-            star[i].acc_exact[2] += star[j].mass / (sqrt(star[j].pos[0]*star[j].pos[0] + star[j].pos[1]*star[j].pos[1] + star[j].pos[2]*star[j].pos[2]));
+            if(i==j){continue;}
+            star[i].acc_exact[0] += star[j].mass / sqrt(star[j].pos[0]*star[j].pos[0] + star[j].pos[1]*star[j].pos[1] + star[j].pos[2]*star[j].pos[2]);
+            star[i].acc_exact[1] += star[j].mass / sqrt(star[j].pos[0]*star[j].pos[0] + star[j].pos[1]*star[j].pos[1] + star[j].pos[2]*star[j].pos[2]);
+            star[i].acc_exact[2] += star[j].mass / sqrt(star[j].pos[0]*star[j].pos[0] + star[j].pos[1]*star[j].pos[1] + star[j].pos[2]*star[j].pos[2]);
+
         }
     }
 
@@ -290,12 +291,14 @@ void tree::simulation()
         err_sum += err[i];
     }
 
-
+    std::cout << " following parameters: " << "N = " << this->max_nodes << ", theta = " << this->opening_threshold << std::endl;
     std::cout << "Average relative error: "
               << err_sum
               << '\n'
               << "err_vec: a(x, y, z) = "
-              << err[0] << ", " << err[1] << ", " << err[2] << std::endl;
+              << err[0] << ", " << err[1] << ", " << err[2] << '\n' << std::endl;
+    /*
     for(i=0; i<3;i++)
-    std::cout << star[1].acc_exact[i] << " vs. " << star[1].acc_tree[i] << std::endl;
+    std::cout << "exact_a_"<< i << ": " << star[1].acc_exact[i] << " vs. tree_a_" << i << ": " << star[1].acc_tree[i] << std::endl;
+    */
 }
